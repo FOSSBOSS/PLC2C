@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-$ldr2txt.py:
+Usage:
+$ldr2txt.py projectName.ldr
+(this program takes a ldr file from the output of deconstuctPJW.py)
 Make dealing with the binary segments of the decompressed project datafile simpler,
 by converting them to text, maintainging text characters as text, 
 and converting control, hidden, and formating characters to thier 
