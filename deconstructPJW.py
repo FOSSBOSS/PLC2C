@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
+"""
+Deconstruct the input project file, and extract the extended features characters to:
+basename_ExtendedCharacters.txt
+might opt to remove these lines from the ldr source file. havent decided yet.
+"""
+
 import os
 import sys
 import shutil
 import gzip
 import logging
 from datetime import datetime
-"""
-The purpose of this script is to log info about project file decompression, 
-and to deconstruct project files into useable subcomponents. 
-"""
+
 def setup_logging():
     user = os.getenv('USER')
     log_dir = f'/home/{user}/bin'
@@ -19,6 +22,31 @@ def setup_logging():
 def log_message(message):
     logging.info(message)
     print(message)
+
+def hex_to_ascii(hex_str):
+    return bytes.fromhex(hex_str).decode('ascii', errors='ignore')
+
+def process_ldr_file(ldr_file, sub_dir):
+    output_file = os.path.join(sub_dir, os.path.splitext(ldr_file)[0] + '_ExtendedCharacters.txt')
+    
+    try:
+        with open(ldr_file, 'rb') as f_in, open(output_file, 'w') as f_out:
+            content = f_in.read()
+            hex_chars = "43686172616374657273"
+            start = 0
+            while start < len(content):
+                index = content.find(bytes.fromhex(hex_chars), start)
+                if index == -1:
+                    break
+                end = content.find(b'\x0A', index + 1)
+                if end == -1:
+                    end = len(content)
+                line = content[index + len(bytes.fromhex(hex_chars)):end].hex().upper()
+                f_out.write("Characters\n")
+                f_out.write(f"{line}\n")
+                start = end + 1
+    except Exception as e:
+        log_message(f"Error processing LDR file {ldr_file}: {e}")
 
 def process_pjw_file(pjw_file):
     basename = os.path.splitext(pjw_file)[0]
@@ -34,7 +62,7 @@ def process_pjw_file(pjw_file):
 
     try:
         with gzip.open(new_file, 'rb') as f_in:
-            extracted_file = os.path.join(sub_dir, basename + '.extracted')
+            extracted_file = os.path.join(sub_dir, basename + '.ldr')
             with open(extracted_file, 'wb') as f_out:
                 shutil.copyfileobj(f_in, f_out)
     except Exception as e:
@@ -74,6 +102,8 @@ def process_pjw_file(pjw_file):
                         log_message(f"Error writing to file {output_filepath}: {e}")
     except Exception as e:
         log_message(f"Error processing extracted file {extracted_file}: {e}")
+    
+    process_ldr_file(extracted_file, sub_dir)
 
 def main():
     setup_logging()
