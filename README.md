@@ -17,3 +17,5 @@ Current status of this project is analysis, and method development.
 I wanted to link a repo in some offical docuemtnation, so I created this repo. 
 Analysis is on going, but I have enough info to be able to deconstruct 
 and predict having a basic generator script going soon. This is an on going project.
+
+For now, this repo will be code fragments, and tool generation.
