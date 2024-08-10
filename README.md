@@ -19,3 +19,13 @@ Analysis is on going, but I have enough info to be able to deconstruct
 and predict having a basic generator script going soon. This is an on going project.
 
 For now, this repo will be code fragments, and tool generation.
+
+
+Todo:
+Write a parser for the .ldr code segments. 
+try to identify the address space of "advanced objects"
+Figure out / verify the rung layout identifyers, and bracnh circuit layouts. 
+Acceptable results: A list of device, rung, line output from program space. 
+
+Create the neural folder, and include object assets for AI detection training
+Write the AI
