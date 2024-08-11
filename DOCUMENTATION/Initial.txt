@@ -6,8 +6,8 @@ F8 03 = horozontal lines
 
 E9 03 = Normaly Closed contact
 EA 03 = Normaly Open contact
-EB 03 = output coil
-EC 03 = NC coil
+EB 03 = Output coil
+EC 03 = Output not
 EF 03 = Set coil
 F0 03 = Reset coil
 
