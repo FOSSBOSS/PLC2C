@@ -1,0 +1,1 @@
+These diagrams relate to basic logical structures. With the exception of NOT, they are 2 input device diagrams.
