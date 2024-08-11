@@ -40,12 +40,12 @@ def search_hex_in_file(file_path, hex_value):
     if num_occurrences > 1:
         print("Number of digits between occurrences:")
         for i in range(1, num_occurrences):
-            digits_between = (occurrences[i] - occurrences[i-1]) * 2  # multiply by 2 to convert bytes to digits
-            print(f"Between occurrence {i} and {i+1}: {digits_between} digits")
+            digits_between = (occurrences[i] - occurrences[i-1])  # more useful in bytes
+            print(f"Between occurrence {i} and {i+1}: {digits_between} bytes")
     
     print("Positions of occurrences:")
     for i, position in enumerate(occurrences, start=1):
-        print(f"Occurrence {i}: Byte {position}, Digit {position*2}")
+        print(f"Occurrence {i}: Byte {position}, Digit {position+1}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
