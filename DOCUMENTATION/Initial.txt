@@ -14,6 +14,6 @@ F0 03 = Reset coil
 10 bytes seperate each device. 
 { speculating }
 the 10 bytes seperating various devices, seems to follow a pattern of 
-start position, byte seperation, center, byte seperator, end position.
+byte separator, start position, byte seperation, center, byte seperator, end position,byte separator.
 
-I'll try to verify that soon. 
+I'll try to verify this soon. I think Ill have to write a very long ladder diagram to figure out how many bytes are positional, vs seperational. 
