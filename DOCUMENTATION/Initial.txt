@@ -17,3 +17,9 @@ the 10 bytes seperating various devices, seems to follow a pattern of
 byte separator, start position, byte seperation, center, byte seperator, end position,byte separator.
 
 I'll try to verify this soon. I think Ill have to write a very long ladder diagram to figure out how many bytes are positional, vs seperational. 
+
+Then also: N-bytes per rung:
+I think this is a constant: ( 2 bytes per segment * 9 segments) + 10 bytes per seperator * 8 byte seperated positions = 98 bytes per rung. 
+I can verify that simply enough. 
+
+Then to write a logic translator by parsing for the first rung. 
