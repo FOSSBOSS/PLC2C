@@ -1,0 +1,3 @@
+Here are some pictures. plc2C_l2_img_proc.png is a failed attempt at using simple segmentation baes computer vision to process a generic ladder locic diagram.
+The issue being that the segmentations detect portions of the shown symbols, and create objects of non logic based structures. A novel fail, which make me think a more advanced 
+Neural Network is the way to go.
