@@ -1,0 +1,19 @@
+findings so far:
+Heres a short list of basic component byte codes:
+0B 04 = vertical line
+0D 04 = rungs
+F8 03 = horozontal lines
+
+E9 03 = Normaly Closed contact
+EA 03 = Normaly Open contact
+EB 03 = output coil
+EC 03 = NC coil
+EF 03 = Set coil
+F0 03 = Reset coil
+
+10 bytes seperate each device. 
+{ speculating }
+the 10 bytes seperating various devices, seems to follow a pattern of 
+start position, byte seperation, center, byte seperator, end position.
+
+I'll try to verify that soon. 
