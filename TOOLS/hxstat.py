@@ -13,6 +13,9 @@ Between occurrence 3 and 4: 102 digits
 Occurrence 10: Byte 19287, Digit 38574
 Occurrence 11: Byte 19338, Digit 38676
 
+To do: make the offset of N-bytes, for N-bytes of the given
+hex bytes to search for. if you search 1 byte it accurate as bytes -1
+but if you search bytes+N it will be off by N-1
 """
 
 def search_hex_in_file(file_path, hex_value):
