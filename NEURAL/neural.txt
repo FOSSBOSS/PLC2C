@@ -1,0 +1,11 @@
+The purpose of this section is to develope the novel approach of using AI to deduce local operatios, based on image, and document processing. 
+This section has not been widely developed yet, as I have some concerns that even with correctly, interpreted logical structures, and diagrams, 
+there would be challenges in verfying the functionality, if a means of testing and verification was not previously generated. 
+
+
+Producing repeatable, accurate diagrams, and circuits is part of the goal for the greater PLC2C project.  Additionaly, while some of the data in PLC logic diagrams is visual,
+there are many segments not immediately visuble, such as configuration data, extended memory, internal functions, and specifications, such as model and devices. 
+
+
+The general plan at the moment is to figure out how to collect the hidden data from project files, and then use an AI / Neural Network to determine logical operations.
+Possibly processing the daigrams visualy, and verifying operations using a form of string, or binary analysis. 
