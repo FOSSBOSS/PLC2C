@@ -1,0 +1,50 @@
+Installing WindLDR in wine, or crossover:
+before making your bottle, install cups, cups-pdf before making the WindLDR bottle \n
+make sure cups is running, else WindLDR isn't smart enough to find a virtual printer. \n
+WindLDR is the only component of the suite with this issue.
+
+$ln-s /var/spool/cups-pdf/$USER ~/.cxoffice/[YOUR_BOTTLE]/dosdevices/c:
+
+this takes care of the inability to print.
+
+
+
+sudo apt install ttf-mscorefonts-installer
+sudo apt install winetricks
+$ winetricks corefonts
+$ winetricks allfonts
+
+how to use wintricks in crossover:
+Enviornmental Variable:
+WINEPREFIX=~/.cxoffice/YOUR_BOTTLE_NAME winetricks
+
+This (should ) take care of various issues related to missing fonts.
+most notable: Veranda is the default, although we are using Western.
+
+sudo apt install libusb-dev libusb-1.0-0-dev 
+sudo apt install linux-tools-virtual hwdata
+
+add user to plugdev if not previously there:
+$sudo usermod -aG plugdev $USER
+
+Write a udev rule:
+/etc/udev/rules.d/99-usb.rules 
+SUBSYSTEM=="usb", MODE=0666
+
+Save file, reload udev rules:
+$sudo udevadm control --reload-rules
+
+
+## WHY 99-rules file? NN-device-rules, NN sets priority, 99 is a low priority.
+
+
+
+link the device to com1 in wine or crossover:
+$ ln -s /dev/ttyACM0 ~/.cxoffice/[YOUR_BOTTLE]/dosdevices/com1
+
+
+previus error was like USB port not found:
+(IT basic instructions)
+
+Current error:
+lol none fixed it.
