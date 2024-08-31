@@ -1,0 +1,22 @@
+Within the project files WindLdr creates, there are various subcomponents. 
+This document is to list those components, and their respective uses.
+Some of this is in the WindLDR documentation, some of this is from manualy reading project files.
+
+The components will be broken out by one of the project analysis tools, at a later date.
+
+
+.bmk : Book Marks
+.cod : Binary Data to PLC
+.cmt : Subroutines Names
+.cus : Custom Monitor Files
+.ini : Program Download Dialog
+
+.ldr : Ladder logic
+.pcv : Printer Settings
+.obu : Device Data List
+.sip : (I forgot to take notes here.)
+
+.sub : Sub Routines
+.sym : Symbol Files
+.tag : XML formated config bits
+.xml : More XML config bits
