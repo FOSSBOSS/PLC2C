@@ -4,6 +4,9 @@ Some of this is in the WindLDR documentation, some of this is from manualy readi
 
 The components will be broken out by one of the project analysis tools, at a later date.
 
+It has occured to me that every section of the project manager probably has its own set of tags,
+and that I could figure out what those all all, by utilizing all the features of WindLDR, but Im not doing that this evening.
+
 
 .bmk : Book Marks
 .cod : Binary Data to PLC
