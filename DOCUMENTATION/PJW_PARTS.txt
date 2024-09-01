@@ -17,7 +17,7 @@ and that I could figure out what those all are, by utilizing all the features of
 .ldr : Ladder logic
 .pcv : Printer Settings
 .obu : Device Data List
-.sip : (I forgot to take notes here.)
+.sip : Scripts
 
 .sub : Sub Routines
 .sym : Symbol Files
