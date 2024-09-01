@@ -3,6 +3,23 @@
 Deconstruct the input project file, and extract the extended features characters to:
 basename_ExtendedCharacters.txt
 might opt to remove these lines from the ldr source file. havent decided yet.
+
+Deconstruct PJW files using the following tags:
+.bmk 
+.cod 
+.cmt 
+.cus 
+.ini 
+.ldr
+.pcv
+.obu
+.sip
+.sub 
+.sym 
+.tag
+.xml
+
+FMI See: https://github.com/FOSSBOSS/PLC2C/blob/main/DOCUMENTATION/PJW_PARTS.txt
 """
 
 import os
