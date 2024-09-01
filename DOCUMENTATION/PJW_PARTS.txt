@@ -18,7 +18,7 @@ and that I could figure out what those all are, by utilizing all the features of
 .pcv : Printer Settings
 .obu : Device Data List
 
-.sip : Scripts
+.sip : Scripts ( IDECs C-esque internal scripting language )
 .sub : Sub Routines
 .sym : Symbol Files
 .tag : XML formated config bits
