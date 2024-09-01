@@ -12,14 +12,15 @@ and that I could figure out what those all are, by utilizing all the features of
 .cod : Binary Data to PLC
 .cmt : Subroutines Names
 .cus : Custom Monitor Files
-.ini : Program Download Dialog
 
+.ini : Program Download Dialog
 .ldr : Ladder logic
 .pcv : Printer Settings
 .obu : Device Data List
-.sip : Scripts
 
+.sip : Scripts
 .sub : Sub Routines
 .sym : Symbol Files
 .tag : XML formated config bits
+
 .xml : More XML config bits
