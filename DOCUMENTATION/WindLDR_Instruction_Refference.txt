@@ -1,0 +1,52 @@
+Instruction Refference: 
+(See Users manual)
+AND AndSeries connection of NO contact
+AND LOD And LoadSeries connection of circuit blocks
+ANDN And NotSeries connection of NC contact
+BPP Bit PopRestores the result of bit logical operation which was saved temporarily
+BPS Bit PushSaves the result of bit logical operation temporarily
+BRD Bit ReadReads the result of bit logical operation which was saved temporarily
+CC= Counter Comparison (=)Equal to comparison of counter current value
+CC>= Counter Comparison (>=)Greater than or equal to comparison of counter current value
+CDP Dual Pulse Reversible CounterDual pulse reversible counter (0 to 65,535)
+CDPD Double-Word Dual Pulse Reversible CounterDouble-word dual pulse reversible counter (0 to 4,294,967,295)
+CNT Adding Counter Adding counter (0 to 65,535)
+CNTD Double-Word Adding CounterDouble-word adding counter (0 to 4,294,967,295)
+CUD Up/Down Selection Reversible CounterUp/down selection reversible counter (0 to 65,535)
+CUDD Double-Word Up/Down Selection Reversible CounterDouble-word up/down selection reversible counter (0 to 4,294,967,295)
+DC= Data Register Comparison (=)Equal to comparison of data register value
+DC>= Data Register Comparison (>=)Greater than or equal to comparison of data register value
+END End Ends a program
+JEND Jump End Ends a jump instruction
+JMP Jump Jumps to a designated program area
+LOD Load Stores intermediate results and reads contact status
+LODN Load Not Stores intermediate results and reads inverted contact status
+MCR Master Control Reset Ends a master control
+MCS Master Control Set Starts a master control
+OR Or Parallel connection of NO contact
+OR LOD Or Load Parallel connection of circuit blocks
+ORN Or Not Parallel connection of NC contact
+OUT Output Outputs the result of bit logical operation
+OUTN Output Not Outputs the inverted result of bit logical operation
+RST Reset Resets output, internal relay, or shift register bit
+SET Set Sets output, internal relay, or shift register bit
+SFR Shift Register Forward shift register
+SFRN Shift Register Not Reverse shift register
+SOTD Single Output Down Falling-edge differentiation output
+SOTU Single Output Up Rising-edge differentiation output
+
+### Groups of instructions ### pg 486
+Data conversion
+
+Week programer
+Interface
+Program Branching
+
+Coordinate Conversion
+
+Pulse
+
+##### Assembly OPs ######### pg 493
+NOP No Operation, a place holder, delay. for debugging
+MOV (W) move a data into some other place
+MUL (W) Multiply. requires 2 data registers
