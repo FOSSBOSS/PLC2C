@@ -9,6 +9,8 @@ from datetime import datetime
 Not throughtly tested.
 sanitized !! and \r occurances.
 Need to verify that the files are intact.... 
+
+ok, one issue is some of the bytes, from the bytes section make it into file output.  which is a no no.
 """
 
 
