@@ -6,30 +6,9 @@ import gzip
 import logging
 from datetime import datetime
 """
-Updated file extensions, how sections with directories are handled, ( we make folders now )
-Is there error handling? lol not really.
-Are there errors? oh yeah! Heres some:
-$dev_deconstructPJW.py Project.pjw  | grep -i Invalid
-Invalid bytes field: b']\x01\r>\\\x01\r*]\x15\r\x00\x00\x02\r4]\x01\rj\x80\x1e\rZ\x00\x01\r4]\x01\r'
-Invalid bytes field: b'C\xbe\xdf'
-Invalid bytes field: b'"Remote_Enable"'
-Invalid bytes field: b'\x00\x03\x00Dp\x01\x00\xa3\\\xb5_\xa3\\\x00\x00B\x00\x01\x00V\x04\x00\x00'
-Invalid bytes field: b' compressor'
-Invalid bytes field: b'"Remote_Enable"'
-Invalid bytes field: b' \r'
-Invalid bytes field: b' the start up routine could start the valve process and the cond and evap flow stuff but then get stuck at the llsv. so instead'
-Invalid bytes field: b'\x00\x05\x00\x00\x00M0020\xf4\x03\x00\x00\x01\x00'
-Invalid bytes field: b' the config bit would be reverted\r'
-Invalid bytes field: b'\x00\xf8\x03\x00\x00\x07\x00'
-Invalid bytes field: b'\x00\x0c\x00'
-Invalid bytes field: b' unit  purging. \r'
-Invalid bytes field: b' unit has finished.\r'
-Invalid bytes field: b' or post purging. \r'
-Invalid bytes field: b' or post purge is active and PID start is OFF. \r'
-Invalid bytes field: b' prject specific comentary omited. !!\r'
-Invalid bytes field: b' and llsv'
-
-\r seems like a common choking point here. 
+Not throughtly tested.
+sanitized !! and \r occurances.
+Need to verify that the files are intact.... 
 """
 
 
@@ -46,6 +25,19 @@ def setup_logging(basename):
 def log_message(message):
     logging.info(message)
     print(message)
+
+def sanitize_line(line):
+    # Remove any unexpected characters
+    line = line.replace(b'\r', b'').replace(b'!!', b'')
+    return line
+
+def is_valid_bytes_field(bytes_field):
+    try:
+        # Check if bytes_field can be cast to an integer
+        int(bytes_field)
+        return True
+    except ValueError:
+        return False
 
 def write_section(output_filepath, content, is_text):
     mode = 'w' if is_text else 'wb'
@@ -85,16 +77,19 @@ def process_pjw_file(pjw_file):
             offset = 0
 
             for line in lines:
+                line = sanitize_line(line)  # Clean the line before processing
                 parts = line.split(b',')
                 if len(parts) >= 4:
-                    number, filename, _, bytes_field = parts[:4]
-                    try:
-                        bytes_to_read = int(bytes_field)
-                    except ValueError:
-                        log_message(f"Invalid bytes field: {bytes_field}")
+                    number = parts[0].decode('utf-8', errors='ignore').strip()
+                    filename = parts[1].decode('utf-8', errors='ignore').strip()
+                    bytes_field = parts[3].decode('utf-8', errors='ignore').strip()
+                    
+                    if not is_valid_bytes_field(bytes_field):
+                        log_message(f"Invalid bytes field: {parts[3]}. Skipping this section.")
                         continue
                     
-                    filename = filename.decode('utf-8', errors='ignore').strip()
+                    bytes_to_read = int(bytes_field)
+                    
                     if not filename:
                         continue
                     
